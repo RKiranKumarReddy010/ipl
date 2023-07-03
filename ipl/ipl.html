@@ -2,51 +2,1207 @@
 <html>
     <head>
         <style>
-/*animate the background gradient position, use vh so that start/end syncs up viewport horizontal*/
-@keyframes rainbow {
-from {background-position: -100vh 0}
-to {background-position: 100vh 0}
-} 
+            body{
+                background-color: black;
+                color: antiquewhite;
+                
+                
+            }
+            .mer{
+                top: 0%;
+                position:relative;
+                margin: 10% auto 0;
+                width: 37%;
+                height:350px;
+                background: linear-gradient(0deg,black,rgb(22, 22, 22),rgb(34, 34, 34));
+            }
+           
+            .iop{
+                margin-top: 8px;
+                position: relative;
+                margin-left: auto;
+                margin-right: auto;
+            }
 
-/*compatibility*/
-@-moz-keyframes rainbow {
-from {background-position: -100vh 0}
-to {background-position: 100vh 0}
-}
-@-webkit-keyframes rainbow {
-from {background-position: -100vh 0}
-to {background-position: 100vh 0}
-}
-@-ms-keyframes rainbow {
-from {background-position: -100vh 0}
-to {background-position: 100vh 0}
-}
-@-o-keyframes rainbow {
-from {background-position: -100vh 0}
-to {background-position: 100vh 0}
-}
-
-.rainbow {
-border: double 0.3em transparent;
-border-radius: 10px;
- /*added a colourstop here, without the third colourstop you get a hard edge*/
-background: linear-gradient(white, white), 
-repeating-linear-gradient(to right, rgb(82, 82, 209),rgb(235, 50, 235), rgb(82, 82, 209));
-background-origin: border-box;
-background-clip: content-box, border-box;
-
-
-        animation-name: rainbow;
-        animation-duration:  3s;
-
-        /*set animation to continue forever, and to move at a single rate instead of easing*/
-        animation-iteration-count: infinite;
-        animation-timing-function: linear;
-}
+            a{
+            margin-top: 20px;
+            position: relative;
+            display: inline-block;
+            padding: 15px 30px;
+            color: #2196f3;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            text-decoration: none;
+            font-size: 24px;
+            overflow: hidden;
+            transform: 0.2s;
+        }
+        .dff{
+            margin-top: 0px;
+            border-style: dashed;
+            text-align: center;
+            border-radius: 20px;
+            margin: 2px;
+            padding: 2px;
+            margin-top: 0px;
+        }
+        table{
+            border-color: rgb(70, 67, 67);
             
+        }
+
+        a:hover{    
+            color: #3f97e4;
+            background: #72e0fc;
+            box-shadow: 0 0 10px #72e0fc, 0 0 40px #72e0fc, 0 0 80px #72e0fc;
+            transition-delay:0.01s;
+            cursor: pointer;
+        }
+        .rgb::before,.rgb::after{
+            content: '';
+            position:absolute;margin-left: 32%;
+                width: 100;
+            bottom: 2px;margin:0;
+                padding: 0;
+            left: -2.5px;
+            right: -2.5px;
+            
+            background: linear-gradient(45deg,#e6fb04,#ff6600,#00ff66,#00ffff,#ff00ff,#ff0099,#6e0dd0,#ff3300,#099fff);
+            
+            background-size: 300%;
+            width:calc(100% + 5px);
+            height:calc(100% + 5px);
+            z-index: -2;
+            top: -2.5px;
+            animation: animate 20s linear infinite;
+        }
+        @keyframes animate{
+            0%{
+                background-position: 0 0;
+            }
+            50%{
+                background-position: 400% 0;
+            }
+            100%{
+                background-position: 0 0;
+            }
+        }
+        .rgb::after{
+            filter: blur(20px);
+            opacity: 100%;
+           
+        }
         </style>
+        <title>I.P.L</title>
     </head>
-    <body>
-        <div class="rainbow">Example</div>
+    
+    <body class="rt ">
+
+        <div id="crackers"></div>
+        <div class="mer rgb">
+            <table><tr><td>
+            <table  class="dff" >
+                <tr>
+                    <td rowspan="3"><h1 id="w1"></h1></td>
+                </tr>
+                <tr>
+                    <td><h3 style="color: yellowgreen;" id="run1">0</h3></td>
+                    <td><h3 style="color: yellow;" id="wk1">0</h3></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><h2 id="ov1">0.0</h2><h3 style="color: aqua;"> _______/_______</h3><h2 id="rr1">0.0</h2></td>
+                </tr>
+            </table></td>
+<!----------------------creating another table ---------------------------------------------------->
+            <td><table  class="dff" >
+                <tr>
+                    <td rowspan="3"><h1 id="w2"></h1></td>
+                </tr>
+                <tr>
+                    <td><h3 style="color: yellowgreen;" id="run2">0</h3></td>
+                    <td><h3 style="color: yellow;" id="wk2">0</h3></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><h2 id="ov2">0.0</h2><h3 style="color: aqua;">_______/_______</h3><h2 id="rr2">0.0</h2></td>
+                </tr>
+            </table></td></tr><tr>
+                <td colspan="2">
+            <table border="2px"  align="center">
+                <tr>
+                    <td><h3 id="nee"></h3></td>
+                    <td><h3 id="bol"></h3></td>
+                </tr>
+            </table>
+        </td></tr></table>
+            
+        </div>
+        
+        <div style="text-align: center;">
+            <a onclick="iplfun()" href="#">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                play
+            </a>
+        </div>
+       
+        <!--                                     1st                                      -->
+        <canvas id="canvas"></canvas>
+        <table class="iop">
+            <tr><td>
+        <table border="5px" style="margin-top: 0px;">
+        <tr>
+            <td>_____player_____</td>
+            <td>RUN(BALL)</td>
+            <td>SR.RATE</td>
+        </tr>
+        <tr>
+            <td id="pp1"></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td id="pp2"></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td id="pp3"></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td id="pp4"></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td id="pp5"></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td id="pp6"></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td id="pp7"></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td id="pp8"></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td id="pp9"></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td id="pp10"></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td id="pp11"></td>
+            <td></td>
+            <td></td>
+        </tr>
+        </table>
+        </td>
+ <!--                                       2nd                                              -->
+        <td>
+        <table border="5px" style="margin-top: 0px;">
+            <tr>
+                <td>_____player_____</td>
+                <td>RUN(BALL)</td>
+                <td>SR.RATE</td>
+            </tr>
+            <tr>
+                <td id="p1"></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td id="p2"></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td id="p3"></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td id="p4"></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td id="p5"></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td id="p6"></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td id="p7"></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td id="p8"></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td id="p9"></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td id="p10"></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td id="p11"></td>
+                <td></td>
+                <td></td>
+            </tr>
+            </table>
+        </td></tr></table>
+        <!------------------------SCRIPT-------------------------------------------------------------->
+        <script>
+            var a,b,t1,t2;
+            var run1=0,run2=0,bls=0,wk1=0,wk2=0,rr1=0,rr2=0,ov1=0,ov2=0;
+            a=Math.random();
+            b=Math.random();
+            bls=0;
+            run1=0;
+            run2=0;
+            
+            if(a>0 && a<(1/10))
+            {
+                t1="CSK";
+                document.getElementById("w1").innerHTML="_CSK";
+                document.getElementById("pp1").innerHTML=" R Gaikwad";
+	document.getElementById("pp2").innerHTML="D Conway";
+	document.getElementById("pp3").innerHTML="A Rahane";
+	document.getElementById("pp4").innerHTML="Moeen Ali";
+	document.getElementById("pp5").innerHTML="S Dube";
+	document.getElementById("pp6").innerHTML="MS Dhoni";
+	document.getElementById("pp7").innerHTML="R Jadeja";
+	document.getElementById("pp8").innerHTML="D Chahar";
+	document.getElementById("pp9").innerHTML="T Deshpande";
+	document.getElementById("pp10").innerHTML="M Theekshana";
+	document.getElementById("pp11").innerHTML="M Patheerana";
+            }
+            else if(a>(1/10) && a<(2/10))
+            {
+                t1="LSG";
+                document.getElementById("w1").innerHTML="_LSG";
+            }
+            else if(a>(2/10) && a<(3/10))
+            {
+                t1="GT";
+                document.getElementById("w1").innerHTML="__GT";
+                document.getElementById("pp1").innerHTML="W Saha";
+	document.getElementById("pp2").innerHTML="S Gill";
+	document.getElementById("pp3").innerHTML="S Sudharsan";
+	document.getElementById("pp4").innerHTML="H Pandya";
+	document.getElementById("pp5").innerHTML="D Miller";
+	document.getElementById("pp6").innerHTML="V Shankar";
+	document.getElementById("pp7").innerHTML="Rashid Khan";
+	document.getElementById("pp8").innerHTML="R Tewatia";
+	document.getElementById("pp9").innerHTML="M Sharma";
+	document.getElementById("pp10").innerHTML="Noor Ahmad";
+	document.getElementById("pp11").innerHTML="M Shami";
+            }
+            else if(a>(3/10) && a<(4/10))
+            {
+                t1="RCB";
+                document.getElementById("w1").innerHTML="_RCB";
+                document.getElementById("pp1").innerHTML=" Faf Du Plessis";
+	document.getElementById("pp2").innerHTML="V Kohli";
+	document.getElementById("pp3").innerHTML="M Lomror";
+	document.getElementById("pp4").innerHTML="G Maxwell";
+	document.getElementById("pp5").innerHTML="D Karthik";
+	document.getElementById("pp6").innerHTML="M Bracewell";
+	document.getElementById("pp7").innerHTML="S Ahmed ";
+	document.getElementById("pp8").innerHTML="V Vijaykumar";
+	document.getElementById("pp9").innerHTML="M Siraj";
+	document.getElementById("pp10").innerHTML="K Sharma";
+	document.getElementById("pp11").innerHTML="Harshal P.";
+            }
+            else if(a>(4/10) && a<(5/10))
+            {
+                t1="MI";
+                document.getElementById("w1").innerHTML="__MI";
+                document.getElementById("pp1").innerHTML="R Sharma";
+	document.getElementById("pp2").innerHTML="I Kishan";
+	document.getElementById("pp3").innerHTML="S Yadav";
+	document.getElementById("pp4").innerHTML="T Varma";
+	document.getElementById("pp5").innerHTML="Tim David";
+	document.getElementById("pp6").innerHTML=" C Green";
+	document.getElementById("pp7").innerHTML="J Archer";
+	document.getElementById("pp8").innerHTML="J Bumrah";
+	document.getElementById("pp9").innerHTML="K Kartikeya";
+	document.getElementById("pp10").innerHTML="H Shokeen";
+	document.getElementById("pp11").innerHTML="J Richardson";
+            }
+            else if(a>(5/10) && a<(6/10))
+            {
+                t1="KXIP";
+                document.getElementById("w1").innerHTML="KXIP";
+            }
+            else if(a>(6/10) && a<(7/10))
+            {
+                t1="DC";
+                document.getElementById("w1").innerHTML="__DC";
+                document.getElementById("pp1").innerHTML="P Shaw";
+                document.getElementById("pp2").innerHTML="D Warner";
+                document.getElementById("pp3").innerHTML=" M Marsh";
+                document.getElementById("pp4").innerHTML="R Pant";
+                document.getElementById("pp5").innerHTML="M Pandey";
+                document.getElementById("pp6").innerHTML="R Powell";
+                document.getElementById("pp7").innerHTML="Axar P";
+                document.getElementById("pp8").innerHTML="Aman Khan";
+                document.getElementById("pp9").innerHTML="Kuldeep Y";
+                document.getElementById("pp10").innerHTML="A Nortje";
+                document.getElementById("pp11").innerHTML="Khaleel A";
+                        }
+            else if(a>(7/10) && a<(8/10))
+            {
+                t1="RR";
+                document.getElementById("w1").innerHTML="__RR";
+            }
+            else if(a>(8/10) && a<(9/10))
+            {
+                t1="KKR";
+                document.getElementById("w1").innerHTML="_KKR";
+            }
+            else{
+                t1="SRH";
+                document.getElementById("w1").innerHTML="_SRH";
+            }
+
+
+
+
+            if(b>0 && b<(1/10))
+            {
+                t2="SRH";
+                document.getElementById("w2").innerHTML="_SRH";
+            }
+            else if(b>(1/10) && b<(2/10))
+            {
+                t2="KKR";
+                document.getElementById("w2").innerHTML="_KKR";
+            }
+            else if(b>(2/10) && b<(3/10))
+            {
+                t2="RR";
+                document.getElementById("w2").innerHTML="__RR";
+            }
+            else if(b>(3/10) && b<(4/10))
+            {
+                t2="DC";
+                document.getElementById("w2").innerHTML="__DC";
+                document.getElementById("p1").innerHTML="P Shaw";
+	document.getElementById("p2").innerHTML="D Warner";
+	document.getElementById("p3").innerHTML=" M Marsh";
+	document.getElementById("p4").innerHTML="R Pant";
+	document.getElementById("p5").innerHTML="M Pandey";
+	document.getElementById("p6").innerHTML="R Powell";
+	document.getElementById("p7").innerHTML="Axar P";
+	document.getElementById("p8").innerHTML="Aman Khan";
+	document.getElementById("p9").innerHTML="Kuldeep Y";
+	document.getElementById("p10").innerHTML="A Nortje";
+	document.getElementById("p11").innerHTML="Khaleel A";
+            }
+            else if(b>(4/10) && b<(5/10))
+            {
+                t2="KXIP";
+                document.getElementById("w2").innerHTML="KXIP";
+            }
+            else if(b>(5/10) && b<(6/10))
+            {
+                t2="MI";
+                document.getElementById("w2").innerHTML="__MI";
+                document.getElementById("p1").innerHTML="R Sharma";
+	document.getElementById("p2").innerHTML="I Kishan";
+	document.getElementById("p3").innerHTML="S Yadav";
+	document.getElementById("p4").innerHTML="T Varma";
+	document.getElementById("p5").innerHTML="Tim David";
+	document.getElementById("p6").innerHTML=" C Green";
+	document.getElementById("p7").innerHTML="J Archer";
+	document.getElementById("p8").innerHTML="J Bumrah";
+	document.getElementById("p9").innerHTML="K Kartikeya";
+	document.getElementById("p10").innerHTML="H Shokeen";
+	document.getElementById("p11").innerHTML="J Richardson";
+            }
+            else if(b>(6/10) && b<(7/10))
+            {
+                t2="RCB";
+                document.getElementById("w2").innerHTML="_RCB";
+                document.getElementById("p1").innerHTML=" Faf Du Plessis";
+	document.getElementById("p2").innerHTML="V Kohli";
+	document.getElementById("p3").innerHTML="M Lomror";
+	document.getElementById("p4").innerHTML="G Maxwell";
+	document.getElementById("p5").innerHTML="D Karthik";
+	document.getElementById("p6").innerHTML="M Bracewell";
+	document.getElementById("p7").innerHTML="S Ahmed ";
+	document.getElementById("p8").innerHTML="V Vijaykumar";
+	document.getElementById("p9").innerHTML="M Siraj";
+	document.getElementById("p10").innerHTML="K Sharma";
+	document.getElementById("p11").innerHTML="Harshal P.";
+            }
+            else if(b>(7/10) && b<(8/10))
+            {
+                t2="GT";
+                document.getElementById("w2").innerHTML="__GT";
+                document.getElementById("p1").innerHTML="W Saha";
+	document.getElementById("p2").innerHTML="S Gill";
+	document.getElementById("p3").innerHTML="S Sudharsan";
+	document.getElementById("p4").innerHTML="H Pandya";
+	document.getElementById("p5").innerHTML="D Miller";
+	document.getElementById("p6").innerHTML="V Shankar";
+	document.getElementById("p7").innerHTML="Rashid Khan";
+	document.getElementById("p8").innerHTML="R Tewatia";
+	document.getElementById("p9").innerHTML="M Sharma";
+	document.getElementById("p10").innerHTML="Noor Ahmad";
+	document.getElementById("p11").innerHTML="M Shami";
+            }
+            else if(b>(8/10) && b<(9/10))
+            {
+                t2="LSG";
+                document.getElementById("w2").innerHTML="_LSG";
+            }
+            else{
+                t2="CSK";
+                document.getElementById("w2").innerHTML="_CSK";
+                document.getElementById("p1").innerHTML=" R Gaikwad";
+	document.getElementById("p2").innerHTML="D Conway";
+	document.getElementById("p3").innerHTML="A Rahane";
+	document.getElementById("p4").innerHTML="Moeen Ali";
+	document.getElementById("p5").innerHTML="S Dube";
+	document.getElementById("p6").innerHTML="MS Dhoni";
+	document.getElementById("p7").innerHTML="R Jadeja";
+	document.getElementById("p8").innerHTML="D Chahar";
+	document.getElementById("p9").innerHTML="T Deshpande";
+	document.getElementById("p10").innerHTML="M Theekshana";
+	document.getElementById("p11").innerHTML="M Patheerana";
+            }
+            // ipl..............
+    
+            
+            function iplfun(){
+                var df=Math.random();
+                if(bls<90){
+                    if(df<0.45){
+                        run1=run1+0;
+                        document.getElementById("run1").innerHTML=run1;
+                        bls=bls+1;
+                        ov1=ov1+0.1;
+                        if(bls%6==0){
+                            ov1=ov1+0.4;
+                        }
+                        document.getElementById("ov1").innerHTML=ov1.toFixed(1);
+                        document.getElementById("rr1").innerHTML="RR-"+(run1/ov1).toFixed(2);
+                    }
+                    else if(df>0.45 && df<0.65){
+                        run1=run1+1;
+                        bls=bls+1;
+                        ov1=ov1+0.1;
+                        if(bls%6==0){
+                            ov1=ov1+0.4;
+                        }
+                        document.getElementById("ov1").innerHTML=ov1.toFixed(1);
+                        document.getElementById("rr1").innerHTML="RR-"+(run1/ov1).toFixed(2);
+                    }
+                    else if(df>=0.65 && df<0.75){
+                        run1=run1+2;
+                        document.getElementById("run1").innerHTML=run1;
+                        bls=bls+1;
+                        ov1=ov1+0.1;
+                        if(bls%6==0){
+                            ov1=ov1+0.4;
+                        }
+                        document.getElementById("ov1").innerHTML=ov1.toFixed(1);
+                        document.getElementById("rr1").innerHTML="RR-"+(run1/ov1).toFixed(2);
+                    }
+                    else if(df>(75/100) && df<(77/100)){
+                        run1=run1+3;
+                        document.getElementById("run1").innerHTML=run1;
+                        bls=bls+1;
+                        ov1=ov1+0.1;
+                        if(bls%6==0){
+                            ov1=ov1+0.4;
+                        }
+                        document.getElementById("ov1").innerHTML=ov1.toFixed(1);
+                        document.getElementById("rr1").innerHTML="RR-"+(run1/ov1).toFixed(2);
+                    }
+                    else if(df>(77/100) && df<(82/100)){
+                        run1=run1+4;
+                        document.getElementById("run1").innerHTML=run1;
+                        bls=bls+1;
+                        ov1=ov1+0.1;
+                        if(bls%6==0){
+                            ov1=ov1+0.4;
+                        }
+                        document.getElementById("ov1").innerHTML=ov1.toFixed(1);
+                        document.getElementById("rr1").innerHTML="RR-"+(run1/ov1).toFixed(2);
+                    }
+                    else if(df>(82/100) && df<(86/100)){
+                        run1=run1+6;
+                        document.getElementById("run1").innerHTML=run1;
+                        bls=bls+1;
+                        ov1=ov1+0.1;
+                        if(bls%6==0){
+                            ov1=ov1+0.4;
+                        }
+                        document.getElementById("ov1").innerHTML=ov1.toFixed(1);
+                        document.getElementById("rr1").innerHTML="RR-"+(run1/ov1).toFixed(2);
+                    }
+                    else if(df>(86/100) && df<(88/100)){
+                        wk1=wk1+1;
+                        document.getElementById("run1").innerHTML=run1;
+                        document.getElementById("wk1").innerHTML=wk1;
+                        bls=bls+1;
+                        if(wk1==10)
+                        {
+                            bls=120;
+                        }
+                        ov1=ov1+0.1;
+                        if(bls%6==0){
+                            ov1=ov1+0.4;
+                        }
+                        document.getElementById("ov1").innerHTML=ov1.toFixed(1);
+                        document.getElementById("rr1").innerHTML="RR-"+(run1/ov1).toFixed(2);
+                    }
+                    else{
+                        run1=run1+1;
+                        document.getElementById("run1").innerHTML=run1;
+                        document.getElementById("rr1").innerHTML="RR-"+(run1/ov1).toFixed(2);
+                    }
+                }
+                else if(bls>=90 && bls<105){
+                    if(df<0.20){
+                        run1=run1+1;
+                        document.getElementById("run1").innerHTML=run1;
+                        bls=bls+1;
+                        ov1=ov1+0.1;
+                        if(bls%6==0){
+                            ov1=ov1+0.4;
+                        }
+                        document.getElementById("ov1").innerHTML=ov1.toFixed(1);
+                        document.getElementById("rr1").innerHTML="RR-"+(run1/ov1).toFixed(2);
+                    }
+                    else if(df>0.20 && df<0.50){
+                        bls=bls+1;
+                        ov1=ov1+0.1;
+                        if(bls%6==0){
+                            ov1=ov1+0.4;
+                        }
+                        document.getElementById("ov1").innerHTML=ov1.toFixed(1);
+                        document.getElementById("rr1").innerHTML="RR-"+(run1/ov1).toFixed(2);
+                    }
+                    else if(df>=0.50 && df<0.65){
+                        run1=run1+2;
+                        document.getElementById("run1").innerHTML=run1;
+                        bls=bls+1;
+                        ov1=ov1+0.1;
+                        if(bls%6==0){
+                            ov1=ov1+0.4;
+                        }
+                        document.getElementById("ov1").innerHTML=ov1.toFixed(1);
+                        document.getElementById("rr1").innerHTML="RR-"+(run1/ov1).toFixed(2);
+                    }
+                    else if(df>(65/100) && df<(70/100)){
+                        run1=run1+3;
+                        document.getElementById("run1").innerHTML=run1;
+                        bls=bls+1;
+                        ov1=ov1+0.1;
+                        if(bls%6==0){
+                            ov1=ov1+0.4;
+                        }
+                        document.getElementById("ov1").innerHTML=ov1.toFixed(1);
+                        document.getElementById("rr1").innerHTML="RR-"+(run1/ov1).toFixed(2);
+                    }
+                    else if(df>(70/100) && df<(80/100)){
+                        run1=run1+4;
+                        document.getElementById("run1").innerHTML=run1;
+                        bls=bls+1;
+                        ov1=ov1+0.1;
+                        if(bls%6==0){
+                            ov1=ov1+0.4;
+                        }
+                        document.getElementById("ov1").innerHTML=ov1.toFixed(1);
+                        document.getElementById("rr1").innerHTML="RR-"+(run1/ov1).toFixed(2);
+                    }
+                    else if(df>(80/100) && df<(88/100)){
+                        run1=run1+6;
+                        document.getElementById("run1").innerHTML=run1;
+                        bls=bls+1;
+                        ov1=ov1+0.1;
+                        if(bls%6==0){
+                            ov1=ov1+0.4;
+                        }
+                        document.getElementById("ov1").innerHTML=ov1.toFixed(1);
+                        document.getElementById("rr1").innerHTML="RR-"+(run1/ov1).toFixed(2);
+                    }
+                    else if(df>(88/100) && df<(93/100)){
+                        wk1=wk1+1;
+                        document.getElementById("run1").innerHTML=run1;
+                        document.getElementById("wk1").innerHTML=wk1;
+                        bls=bls+1;
+                        if(wk1==10)
+                        {
+                            bls=120;
+                        }
+                        ov1=ov1+0.1;
+                        if(bls%6==0){
+                            ov1=ov1+0.4;
+                        }
+                        document.getElementById("ov1").innerHTML=ov1.toFixed(1);
+                        document.getElementById("rr1").innerHTML="RR-"+(run1/ov1).toFixed(2);
+                    }
+                    else{
+                        run1=run1+1;
+                        document.getElementById("run1").innerHTML=run1;
+                        document.getElementById("rr1").innerHTML="RR-"+(run1/ov1).toFixed(2);
+                    }
+                }
+                else if(bls>=105 && bls<120){
+                    if(df<0.10){
+                        run1=run1+1;
+                        document.getElementById("run1").innerHTML=run1;
+                        bls=bls+1;
+                        ov1=ov1+0.1;
+                        if(bls%6==0){
+                            ov1=ov1+0.4;
+                        }
+                        document.getElementById("ov1").innerHTML=ov1.toFixed(1);
+                        document.getElementById("rr1").innerHTML="RR-"+(run1/ov1).toFixed(2);
+                    }
+                    else if(df>0.10 && df<0.20){
+                        bls=bls+1;
+                        ov1=ov1+0.1;
+                        if(bls%6==0){
+                            ov1=ov1+0.4;
+                        }
+                        document.getElementById("ov1").innerHTML=ov1.toFixed(1);
+                        document.getElementById("rr1").innerHTML="RR-"+(run1/ov1).toFixed(2);
+                    }
+                    else if(df>=0.20 && df<0.25){
+                        run1=run1+2;
+                        document.getElementById("run1").innerHTML=run1;
+                        bls=bls+1;
+                        ov1=ov1+0.1;
+                        if(bls%6==0){
+                            ov1=ov1+0.4;
+                        }
+                        document.getElementById("ov1").innerHTML=ov1.toFixed(1);
+                        document.getElementById("rr1").innerHTML="RR-"+(run1/ov1).toFixed(2);
+                    }
+                    else if(df>(25/100) && df<(30/100)){
+                        run1=run1+3;
+                        document.getElementById("run1").innerHTML=run1;
+                        bls=bls+1;
+                        ov1=ov1+0.1;
+                        if(bls%6==0){
+                            ov1=ov1+0.4;
+                        }
+                        document.getElementById("ov1").innerHTML=ov1.toFixed(1);
+                        document.getElementById("rr1").innerHTML="RR-"+(run1/ov1).toFixed(2);
+                    }
+                    else if(df>(30/100) && df<(60/100)){
+                        run1=run1+4;
+                        document.getElementById("run1").innerHTML=run1;
+                        bls=bls+1;
+                        ov1=ov1+0.1;
+                        if(bls%6==0){
+                            ov1=ov1+0.4;
+                        }
+                        document.getElementById("ov1").innerHTML=ov1.toFixed(1);
+                        document.getElementById("rr1").innerHTML="RR-"+(run1/ov1).toFixed(2);
+                    }
+                    else if(df>(60/100) && df<(80/100)){
+                        run1=run1+6;
+                        document.getElementById("run1").innerHTML=run1;
+                        bls=bls+1;
+                        ov1=ov1+0.1;
+                        if(bls%6==0){
+                            ov1=ov1+0.4;
+                        }
+                        document.getElementById("ov1").innerHTML=ov1.toFixed(1);
+                        document.getElementById("rr1").innerHTML="RR-"+(run1/ov1).toFixed(2);
+                    }
+                    else if(df>(80/100) && df<(90/100)){
+                        wk1=wk1+1;
+                        document.getElementById("run1").innerHTML=run1;
+                        document.getElementById("wk1").innerHTML=wk1;
+                        bls=bls+1;
+                        if(wk1==10)
+                        {
+                            bls=120;
+                        }
+                        ov1=ov1+0.1;
+                        if(bls%6==0){
+                            ov1=ov1+0.4;
+                        }
+                        document.getElementById("ov1").innerHTML=ov1.toFixed(1);
+                        document.getElementById("rr1").innerHTML="RR-"+(run1/ov1).toFixed(2);
+                    }
+                    else{
+                        run1=run1+1;
+                        document.getElementById("run1").innerHTML=run1;
+                        document.getElementById("rr1").innerHTML="RR-"+(run1/ov1).toFixed(2);
+                    }
+                }
+                else if(bls>=120 && bls<210){
+                    if(df<0.45){
+                        run2=run2+0;
+                        document.getElementById("run2").innerHTML=run2;
+                        bls=bls+1;
+                        ov2=ov2+0.1;
+                        if(bls%6==0){
+                            ov2=ov2+0.4;
+                        }
+                        document.getElementById("ov2").innerHTML=ov2.toFixed(1);
+                        document.getElementById("rr2").innerHTML="RR-"+(run2/ov2).toFixed(2);
+                        document.getElementById("nee").innerHTML="NEED--"+((run1-run2)+1)+"RUNS";
+                        document.getElementById("bol").innerHTML="FROM--"+(240-bls)+"BALLS";
+                        if(run2>run1)
+                        {
+                            bls=240;
+                        }
+                    }
+                    else if(df>0.45 && df<0.65){
+                        run2=run2+1;
+                        bls=bls+1;
+                        ov2=ov2+0.1;
+                        if(bls%6==0){
+                            ov2=ov2+0.4;
+                        }
+                        document.getElementById("ov2").innerHTML=ov2.toFixed(1);
+                        document.getElementById("rr2").innerHTML="RR-"+(run2/ov2).toFixed(2);
+                        document.getElementById("nee").innerHTML="NEED--"+((run1-run2)+1)+"RUNS";
+                        document.getElementById("bol").innerHTML="FROM--"+(240-bls)+"BALLS";
+                        if(run2>run1)
+                        {
+                            bls=240;
+                        }
+                    }
+                    else if(df>=0.65 && df<0.75){
+                        run2=run2+2;
+                        document.getElementById("run2").innerHTML=run2;
+                        bls=bls+1;
+                        ov2=ov2+0.1;
+                        if(bls%6==0){
+                            ov2=ov2+0.4;
+                        }
+                        document.getElementById("ov2").innerHTML=ov2.toFixed(1);
+                        document.getElementById("rr2").innerHTML="RR-"+(run2/ov2).toFixed(2);
+                        document.getElementById("nee").innerHTML="NEED--"+((run1-run2)+1)+"RUNS";
+                        document.getElementById("bol").innerHTML="FROM--"+(240-bls)+"BALLS";
+                        if(run2>run1)
+                        {
+                            bls=240;
+                        }
+                    }
+                    else if(df>(75/100) && df<(77/100)){
+                        run2=run2+3;
+                        document.getElementById("run2").innerHTML=run2;
+                        bls=bls+1;
+                        ov2=ov2+0.1;
+                        if(bls%6==0){
+                            ov2=ov2+0.4;
+                        }
+                        document.getElementById("ov2").innerHTML=ov2.toFixed(1);
+                        document.getElementById("rr2").innerHTML="RR-"+(run2/ov2).toFixed(2);
+                        document.getElementById("nee").innerHTML="NEED--"+((run1-run2)+1)+"RUNS";
+                        document.getElementById("bol").innerHTML="FROM--"+(240-bls)+"BALLS";
+                        if(run2>run1)
+                        {
+                            bls=240;
+                        }
+                    }
+                    else if(df>(77/100) && df<(82/100)){
+                        run2=run2+4;
+                        document.getElementById("run2").innerHTML=run2;
+                        bls=bls+1;
+                        ov2=ov2+0.1;
+                        if(bls%6==0){
+                            ov2=ov2+0.4;
+                        }
+                        document.getElementById("ov2").innerHTML=ov2.toFixed(1);
+                        document.getElementById("rr2").innerHTML="RR-"+(run2/ov2).toFixed(2);
+                        document.getElementById("nee").innerHTML="NEED--"+((run1-run2)+1)+"RUNS";
+                        document.getElementById("bol").innerHTML="FROM--"+(240-bls)+"BALLS";
+                        if(run2>run1)
+                        {
+                            bls=240;
+                        }
+                    }
+                    else if(df>(82/100) && df<(86/100)){
+                        run2=run2+6;
+                        document.getElementById("run2").innerHTML=run2;
+                        bls=bls+1;
+                        ov2=ov2+0.1;
+                        if(bls%6==0){
+                            ov2=ov2+0.4;
+                        }
+                        document.getElementById("ov2").innerHTML=ov2.toFixed(1);
+                        document.getElementById("rr2").innerHTML="RR-"+(run2/ov2).toFixed(2);
+                        document.getElementById("nee").innerHTML="NEED--"+((run1-run2)+1)+"RUNS";
+                        document.getElementById("bol").innerHTML="FROM--"+(240-bls)+"BALLS";
+                        if(run2>run1)
+                        {
+                            bls=240;
+                        }
+                    }
+                    else if(df>(86/100) && df<(88/100)){
+                        wk2=wk2+1;
+                        document.getElementById("run2").innerHTML=run2;
+                        document.getElementById("wk2").innerHTML=wk2;
+                        bls=bls+1;
+                        if(wk2==10)
+                        {
+                            bls=240;
+                        }
+                        ov2=ov2+0.1;
+                        if(bls%6==0){
+                            ov2=ov2+0.4;
+                        }
+                        document.getElementById("ov2").innerHTML=ov2.toFixed(1);
+                        document.getElementById("rr2").innerHTML="RR-"+(run2/ov2).toFixed(2);
+                        document.getElementById("nee").innerHTML="NEED--"+((run1-run2)+1)+"RUNS";
+                        document.getElementById("bol").innerHTML="FROM--"+(240-bls)+"BALLS";
+                        if(run2>run1)
+                        {
+                            bls=240;
+                        }
+                    }
+                    else{
+                        run2=run2+1;
+                        document.getElementById("run2").innerHTML=run2;
+                        document.getElementById("rr2").innerHTML="RR-"+(run2/ov2).toFixed(2);
+                        document.getElementById("nee").innerHTML="NEED--"+((run1-run2)+1)+"RUNS";
+                        document.getElementById("bol").innerHTML="FROM--"+(240-bls)+"BALLS";
+                        if(run2>run1)
+                        {
+                            bls=240;
+                        }
+                    }
+                }
+                else if(bls>=210 && bls<225){
+                    if(df<0.20){
+                        run2=run2+1;
+                        document.getElementById("run2").innerHTML=run2;
+                        bls=bls+1;
+                        ov2=ov2+0.1;
+                        if(bls%6==0){
+                            ov2=ov2+0.4;
+                        }
+                        document.getElementById("ov2").innerHTML=ov2.toFixed(1);
+                        document.getElementById("rr2").innerHTML="RR-"+(run2/ov2).toFixed(2);
+                        document.getElementById("nee").innerHTML="NEED--"+((run1-run2)+1)+"RUNS";
+                        document.getElementById("bol").innerHTML="FROM--"+(240-bls)+"BALLS";
+                        if(run2>run1)
+                        {
+                            bls=240;
+                        }
+                    }
+                    else if(df>0.20 && df<0.50){
+                        bls=bls+1;
+                        ov2=ov2+0.1;
+                        if(bls%6==0){
+                            ov2=ov2+0.4;
+                        }
+                        document.getElementById("ov2").innerHTML=ov2.toFixed(1);
+                        document.getElementById("rr2").innerHTML="RR-"+(run2/ov2).toFixed(2);
+                        document.getElementById("nee").innerHTML="NEED--"+((run1-run2)+1)+"RUNS";
+                        document.getElementById("bol").innerHTML="FROM--"+(240-bls)+"BALLS";
+                        if(run2>run1)
+                        {
+                            bls=240;
+                        }
+                    }
+                    else if(df>=0.50 && df<0.65){
+                        run2=run2+2;
+                        document.getElementById("run2").innerHTML=run2;
+                        bls=bls+1;
+                        ov2=ov2+0.1;
+                        if(bls%6==0){
+                            ov2=ov2+0.4;
+                        }
+                        document.getElementById("ov2").innerHTML=ov2.toFixed(1);
+                        document.getElementById("rr2").innerHTML="RR-"+(run2/ov2).toFixed(2);
+                        document.getElementById("nee").innerHTML="NEED--"+((run1-run2)+1)+"RUNS";
+                        document.getElementById("bol").innerHTML="FROM--"+(240-bls)+"BALLS";
+                        if(run2>run1)
+                        {
+                            bls=240;
+                        }
+                    }
+                    else if(df>(65/100) && df<(70/100)){
+                        run2=run2+3;
+                        document.getElementById("run2").innerHTML=run2;
+                        bls=bls+1;
+                        ov2=ov2+0.1;
+                        if(bls%6==0){
+                            ov2=ov2+0.4;
+                        }
+                        document.getElementById("ov2").innerHTML=ov2.toFixed(1);
+                        document.getElementById("rr2").innerHTML="RR-"+(run2/ov2).toFixed(2);
+                        document.getElementById("nee").innerHTML="NEED--"+((run1-run2)+1)+"RUNS";
+                        document.getElementById("bol").innerHTML="FROM--"+(240-bls)+"BALLS";
+                        if(run2>run1)
+                        {
+                            bls=240;
+                        }
+                    }
+                    else if(df>(70/100) && df<(80/100)){
+                        run2=run2+4;
+                        document.getElementById("run2").innerHTML=run2;
+                        bls=bls+1;
+                        ov2=ov2+0.1;
+                        if(bls%6==0){
+                            ov2=ov2+0.4;
+                        }
+                        document.getElementById("ov2").innerHTML=ov2.toFixed(1);
+                        document.getElementById("rr2").innerHTML="RR-"+(run2/ov2).toFixed(2);
+                        document.getElementById("nee").innerHTML="NEED--"+((run1-run2)+1)+"RUNS";
+                        document.getElementById("bol").innerHTML="FROM--"+(240-bls)+"BALLS";
+                        if(run2>run1)
+                        {
+                            bls=240;
+                        }
+                    }
+                    else if(df>(80/100) && df<(88/100)){
+                        run2=run2+6;
+                        document.getElementById("run2").innerHTML=run2;
+                        bls=bls+1;
+                        ov2=ov2+0.1;
+                        if(bls%6==0){
+                            ov2=ov2+0.4;
+                        }
+                        document.getElementById("ov2").innerHTML=ov2.toFixed(1);
+                        document.getElementById("rr2").innerHTML="RR-"+(run2/ov2).toFixed(2);
+                        document.getElementById("nee").innerHTML="NEED--"+((run1-run2)+1)+"RUNS";
+                        document.getElementById("bol").innerHTML="FROM--"+(240-bls)+"BALLS";
+                        if(run2>run1)
+                        {
+                            bls=240;
+                        }
+                    }
+                    else if(df>(88/100) && df<(93/100)){
+                        wk2=wk2+1;
+                        document.getElementById("run2").innerHTML=run2;
+                        document.getElementById("wk2").innerHTML=wk2;
+                        bls=bls+1;
+                        if(wk2==10)
+                        {
+                            bls=240;
+                        }
+                        ov2=ov2+0.1;
+                        if(bls%6==0){
+                            ov2=ov2+0.4;
+                        }
+                        document.getElementById("ov2").innerHTML=ov2.toFixed(1);
+                        document.getElementById("rr2").innerHTML="RR-"+(run2/ov2).toFixed(2);
+                        document.getElementById("nee").innerHTML="NEED--"+((run1-run2)+1)+"RUNS";
+                        document.getElementById("bol").innerHTML="FROM--"+(240-bls)+"BALLS";
+                        if(run2>run1)
+                        {
+                            bls=240;
+                        }
+                    }
+                    else{
+                        run2=run2+1;
+                        document.getElementById("run2").innerHTML=run2;
+                        document.getElementById("rr2").innerHTML="RR-"+(run2/ov2).toFixed(2);
+                        document.getElementById("nee").innerHTML="NEED--"+((run1-run2)+1)+"RUNS";
+                        document.getElementById("bol").innerHTML="FROM--"+(240-bls)+"BALLS";
+                        if(run2>run1)
+                        {
+                            bls=240;
+                        }
+                    }
+                }
+                else if(bls>=225 && bls<240){
+                    if(df<0.10){
+                        run2=run2+1;
+                        document.getElementById("run2").innerHTML=run2;
+                        bls=bls+1;
+                        ov2=ov2+0.1;
+                        if(bls%6==0){
+                            ov2=ov2+0.4;
+                        }
+                        document.getElementById("ov2").innerHTML=ov2.toFixed(1);
+                        document.getElementById("rr2").innerHTML="RR-"+(run2/ov2).toFixed(2);
+                        document.getElementById("nee").innerHTML="NEED--"+((run1-run2)+1)+"RUNS";
+                        document.getElementById("bol").innerHTML="FROM--"+(240-bls)+"BALLS";
+                        if(run2>run1)
+                        {
+                            bls=240;
+                        }
+                    }
+                    else if(df>0.10 && df<0.20){
+                        bls=bls+1;
+                        ov2=ov2+0.1;
+                        if(bls%6==0){
+                            ov2=ov2+0.4;
+                        }
+                        document.getElementById("ov2").innerHTML=ov2.toFixed(1);
+                        document.getElementById("rr2").innerHTML="RR-"+(run2/ov2).toFixed(2);
+                        document.getElementById("nee").innerHTML="NEED--"+((run1-run2)+1)+"RUNS";
+                        document.getElementById("bol").innerHTML="FROM--"+(240-bls)+"BALLS";
+                        if(run2>run1)
+                        {
+                            bls=240;
+                        }
+                    }
+                    else if(df>=0.20 && df<0.25){
+                        run2=run2+2;
+                        document.getElementById("run2").innerHTML=run2;
+                        bls=bls+1;
+                        ov2=ov2+0.1;
+                        if(bls%6==0){
+                            ov2=ov2+0.4;
+                        }
+                        document.getElementById("ov2").innerHTML=ov2.toFixed(1);
+                        document.getElementById("rr2").innerHTML="RR-"+(run2/ov2).toFixed(2);
+                        document.getElementById("nee").innerHTML="NEED--"+((run1-run2)+1)+"RUNS";
+                        document.getElementById("bol").innerHTML="FROM--"+(240-bls)+"BALLS";
+                        if(run2>run1)
+                        {
+                            bls=240;
+                        }
+                    }
+                    else if(df>(25/100) && df<(30/100)){
+                        run2=run2+3;
+                        document.getElementById("run2").innerHTML=run2;
+                        bls=bls+1;
+                        ov2=ov2+0.1;
+                        if(bls%6==0){
+                            ov2=ov2+0.4;
+                        }
+                        document.getElementById("ov2").innerHTML=ov2.toFixed(1);
+                        document.getElementById("rr2").innerHTML="RR-"+(run2/ov2).toFixed(2);
+                        document.getElementById("nee").innerHTML="NEED--"+((run1-run2)+1)+"RUNS";
+                        document.getElementById("bol").innerHTML="FROM--"+(240-bls)+"BALLS";
+                        if(run2>run1)
+                        {
+                            bls=240;
+                        }
+                    }
+                    else if(df>(30/100) && df<(60/100)){
+                        run2=run2+4;
+                        document.getElementById("run2").innerHTML=run2;
+                        bls=bls+1;
+                        ov2=ov2+0.1;
+                        if(bls%6==0){
+                            ov2=ov2+0.4;
+                        }
+                        document.getElementById("ov2").innerHTML=ov2.toFixed(1);
+                        document.getElementById("rr2").innerHTML="RR-"+(run2/ov2).toFixed(2);
+                        document.getElementById("nee").innerHTML="NEED--"+((run1-run2)+1)+"RUNS";
+                        document.getElementById("bol").innerHTML="FROM--"+(240-bls)+"BALLS";
+                        if(run2>run1)
+                        {
+                            bls=240;
+                        }
+                    }
+                    else if(df>(60/100) && df<(80/100)){
+                        run2=run2+6;
+                        document.getElementById("run2").innerHTML=run2;
+                        bls=bls+1;
+                        ov2=ov2+0.1;
+                        if(bls%6==0){
+                            ov2=ov2+0.4;
+                        }
+                        document.getElementById("ov2").innerHTML=ov2.toFixed(1);
+                        document.getElementById("rr2").innerHTML="RR-"+(run2/ov2).toFixed(2);
+                        document.getElementById("nee").innerHTML="NEED--"+((run1-run2)+1)+"RUNS";
+                        document.getElementById("bol").innerHTML="FROM--"+(240-bls)+"BALLS";
+                        if(run2>run1)
+                        {
+                            bls=240;
+                        }
+                    }
+                    else if(df>(80/100) && df<(90/100)){
+                        wk2=wk2+1;
+                        document.getElementById("run2").innerHTML=run2;
+                        document.getElementById("wk2").innerHTML=wk2;
+                        bls=bls+1;
+                        if(wk2==10)
+                        {
+                            bls=240;
+                        }
+                        ov2=ov2+0.1;
+                        if(bls%6==0){
+                            ov2=ov2+0.4;
+                        }
+                        document.getElementById("ov2").innerHTML=ov2.toFixed(1);
+                        document.getElementById("rr2").innerHTML="RR-"+(run2/ov2).toFixed(2);
+                        document.getElementById("nee").innerHTML="NEED--"+((run1-run2)+1)+"RUNS";
+                        document.getElementById("bol").innerHTML="FROM--"+(240-bls)+"BALLS";
+                        if(run2>run1)
+                        {
+                            bls=240;
+                        }
+                    }
+                    else{
+                        run2=run2+1;
+                        document.getElementById("run2").innerHTML=run2;
+                        document.getElementById("rr2").innerHTML="RR-"+(run2/ov2).toFixed(2);
+                        document.getElementById("nee").innerHTML="NEED--"+((run1-run2)+1)+"RUNS";
+                        document.getElementById("bol").innerHTML="FROM--"+(240-bls)+"BALLS";
+                        if(run2>run1)
+                        {
+                            bls=240;
+                        }
+                    }
+
+                }
+
+                if(bls==240 ){
+                    if(run1>run2){
+                        alert(t1+" WON THE MATCH....");
+                        "use strict";
+
+
+                    }
+                    else if(run2>run1){
+                        alert(t2+" WON THE MATCH....");
+                        "use strict";
+
+
+                    }
+                    else{
+                        alert("..MATCH . TIED...");
+                    }
+                }
+                
+            }
+
+
+        </script>
+        <table>
+            <tr>
+                <td><h1>*CREDIT:</h1></td>
+                <td><a href="https://www.youtube.com/@CodeSky">@CODESKY</a></td>
+            </tr>
+        </table>
     </body>
 </html>
